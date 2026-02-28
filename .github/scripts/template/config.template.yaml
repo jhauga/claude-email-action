@@ -1,0 +1,28 @@
+# -----------------------------------------------------------------------------
+# config.yaml  —  Credentials and agent settings (TEMPLATE)
+# 
+# ⚠️  WARNING: This file contains sensitive credentials.
+#     NEVER commit this file to version control!
+#     It is already listed in .gitignore.
+#
+# Fill in your CPanel email credentials below.
+# -----------------------------------------------------------------------------
+
+email:
+  address: "your-agent@yourdomain.com"   # The CPanel email account you created
+  password: "YOUR_EMAIL_PASSWORD"        # Your email account password
+
+# SMTP — for SENDING emails
+smtp:
+  host: "mail.yourdomain.com"            # CPanel SMTP host (check CPanel → Email Accounts → Connect Devices)
+  port: 587                              # 587 = STARTTLS (recommended) | 465 = SSL
+  use_ssl: false                         # Set true if using port 465
+
+# IMAP — for READING reply emails
+imap:
+  host: "mail.yourdomain.com"            # Usually same as SMTP host
+  port: 993                              # 993 = IMAP SSL (standard)
+  folder: "INBOX"                        # Folder to poll
+
+# How often to check for replies (in minutes)
+poll_interval_minutes: 20

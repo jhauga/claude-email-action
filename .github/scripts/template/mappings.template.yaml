@@ -1,0 +1,62 @@
+# -----------------------------------------------------------------------------
+# tasks/mappings.yaml  —  Subject → Task dispatcher map (TEMPLATE)
+#
+# ⚠️  WARNING: This file may contain sensitive email addresses or commands.
+#     NEVER commit this file to version control!
+#     It is already listed in .gitignore.
+#
+# HOW IT WORKS:
+#   When a reply email arrives, the agent:
+#     1. Strips RE:/Fwd:/etc. from the subject
+#     2. Looks up the clean subject in this file
+#     3. Reads the JSON payload in the reply body:
+#          {"continue": "yes", "action": "<action_value>", "task": "<task_value>"}
+#     4. Runs the matching action_handler and/or task_handler
+#
+# HANDLER TYPES:
+#   shell  — runs a shell command
+#   python — calls a function(payload) from a .py file
+#   email  — sends a follow-up email
+#
+# You never need to touch agent.py. Only edit this file.
+# -----------------------------------------------------------------------------
+
+subjects:
+
+  # -- Example 1: System Health Check -----------------------------------------
+  "System Health Check":
+    action_handlers:
+      run_diagnostics:
+        type: shell
+        command: "echo 'Running diagnostics...'"
+
+      send_status:
+        type: email
+        to: "admin@yourdomain.com"
+        subject: "System Status Report"
+        body: "Automated status report generated."
+
+    task_handlers:
+      backup_now:
+        type: shell
+        command: "echo 'Starting backup...'"
+
+      restart_service:
+        type: shell
+        command: "echo 'Restarting service...'"
+
+  # -- Example 2: Data Pipeline -----------------------------------------------
+  "Data Pipeline":
+    action_handlers:
+      process:
+        type: python
+        module: "handlers/pipeline.py"   # relative to agent.py directory
+        function: "run_pipeline"
+
+    task_handlers:
+      export_csv:
+        type: python
+        module: "handlers/pipeline.py"
+        function: "export_to_csv"
+
+# Add more subject mappings below as needed
