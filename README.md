@@ -1,4 +1,4 @@
-# Claude Email Agent — Setup & Usage
+# Claude Email Action (*Agent*) — Setup & Usage
 
 ## Overview
 
