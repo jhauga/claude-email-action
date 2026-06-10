@@ -1,0 +1,24 @@
+# -----------------------------------------------------------------------------
+# config.yaml.template  -  Template for credentials and agent settings
+# Fill in your CPanel email credentials below.
+# This file is the only place credentials live.
+# -----------------------------------------------------------------------------
+
+email:
+  address: "agent-email@example.com" # The CPanel email account you created
+  password: "agentPassword"
+
+# SMTP - for SENDING emails
+smtp:
+  host: "example.com"                # CPanel SMTP host (check CPanel - Email Accounts - Connect Devices)
+  port: 465                          # 587 = STARTTLS (recommended) | 465 = SSL
+  use_ssl: true                      # Set true if using port 465
+
+# IMAP - for READING reply emails
+imap:
+  host: "example.com"                # Usually same as SMTP host
+  port: 993                          # 993 = IMAP SSL (standard)
+  folder: "INBOX"                    # Folder to poll
+
+# How often to check for replies (in minutes)
+poll_interval_minutes: 20

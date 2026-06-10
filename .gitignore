@@ -1,0 +1,69 @@
+# =============================================================================
+# SENSITIVE FILES - NEVER COMMIT
+# =============================================================================
+# These files contain credentials, secrets, or user-specific data
+
+# Main configuration with email credentials
+config.yaml
+
+# Task mappings may contain sensitive email addresses or commands
+tasks/mappings.yaml
+
+# Sent email tracking log
+sent_log.json
+
+# Agent runtime log (may contain sensitive info)
+agent.log
+
+# All other log related files
+nohup.out
+
+# User files
+handlers/*
+tasks/*
+
+# =============================================================================
+# PYTHON
+# =============================================================================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# =============================================================================
+# IDE / EDITORS
+# =============================================================================
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# =============================================================================
+# OS
+# =============================================================================
+.DS_Store
+Thumbs.db
